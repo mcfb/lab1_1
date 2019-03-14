@@ -1,6 +1,5 @@
 package pl.com.bottega.ecommerce.sales.domain.offer;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class ProductData {
@@ -23,25 +22,10 @@ public class ProductData {
         return price;
     }
 
-    public Money getProductPrice() {
-        return price;
-    }
-
     public String getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public Date getSnapshotDate() {
-        return snapshotDate;
-    }
 
     @Override public boolean equals(Object o) {
         if (this == o)

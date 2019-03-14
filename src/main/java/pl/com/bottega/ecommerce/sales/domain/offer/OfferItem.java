@@ -19,22 +19,20 @@ import java.util.Objects;
 public class OfferItem {
 
     private ProductData productData;
-
     private int quantity;
-
     private Money totalCost;
-
     private Discount discount;
 
     public OfferItem(ProductData product, int quantity) {
-        this(product, quantity, null);
+        this(product, quantity, null, null);
     }
 
-    public OfferItem(ProductData productData, int quantity, Discount discount) {
+    public OfferItem(ProductData productData, int quantity, Discount discount, Money totalCost) {
 
         this.productData = productData;
         this.quantity = quantity;
         this.discount = discount;
+        this.totalCost = totalCost;
 
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
@@ -56,7 +54,6 @@ public class OfferItem {
         return discount;
     }
 
-
     public int getQuantity() {
         return quantity;
     }
@@ -76,11 +73,8 @@ public class OfferItem {
             return false;
         }
         OfferItem other = (OfferItem) obj;
-        return Objects.equals(totalCost.getCurrency(), other.totalCost.getCurrency())
-               && Objects.equals(discount, other.discount)
-               && Objects.equals(productData, other.productData)
-               && quantity == other.quantity
-               && Objects.equals(totalCost, other.totalCost);
+        return Objects.equals(totalCost.getCurrency(), other.totalCost.getCurrency()) && Objects.equals(discount, other.discount) && Objects
+                .equals(productData, other.productData) && quantity == other.quantity && Objects.equals(totalCost, other.totalCost);
     }
 
     /**
